@@ -63,8 +63,8 @@ namespace Mapsui.Rendering.Skia
         {
             try
             {
-                using (var surface = SKSurface.Create(
-                    (int)viewport.Width, (int)viewport.Height, SKImageInfo.PlatformColorType, SKAlphaType.Unpremul))
+                SKImageInfo info = new SKImageInfo((int)viewport.Width, (int)viewport.Height, SKImageInfo.PlatformColorType, SKAlphaType.Unpremul);
+                using (var surface = SKSurface.Create(info))
                 {
                     if (surface == null) return null;
                     // Not sure if this is needed here:
